@@ -1,0 +1,19 @@
+awsRegion: "us-east-1"
+
+cloudProvider: aws
+
+replicaCount: 2
+
+image:
+  repository: 996452548190.dkr.ecr.us-east-1.amazonaws.com/cluster-autoscaler
+  tag: 1.20.0
+  pullPolicy: IfNotPresent
+
+extraArgs:
+  v: 4
+  stderrthreshold: info
+  logtostderr: true
+  aws-use-static-instance-list: true
+
+nodeSelector:
+  kubernetes.io/os: ${operating_system}
